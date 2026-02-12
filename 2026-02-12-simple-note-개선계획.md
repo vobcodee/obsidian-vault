@@ -224,7 +224,7 @@
 
 ## ✅ 진행 상황
 
-### Phase 1 - 진행 중 (2026-02-12)
+### Phase 1 - ✅ 완료 (2026-02-12)
 - [x] 브랜치 생성: `feat/phase1-security-auth`
 - [x] Zod 패키지 설치
 - [x] 스키마 정의 (`schemas/note.ts`)
@@ -232,11 +232,35 @@
 - [x] 마이그레이션 추가 (003, 004)
 - [x] 컴포넌트 업데이트 (Toast 적용)
 - [x] GitHub 푸시 완료
-- [ ] **PR 생성 및 리뷰**: https://github.com/vobcodee/simple-note/pull/new/feat/phase1-security-auth
-- [ ] **Supabase 마이그레이션 적용**
-- [ ] **환경 변수 설정**
+- [x] **PR #1 머지 완료** ✅
 
-### 다음 작업
+**남은 작업:**
+- [ ] Supabase 마이그레이션 적용 (Dashboard에서 SQL 실행)
+- [ ] 환경 변수 설정 (.env.local)
+
+---
+
+### 🔐 로그인 구현 방법
+
+현재는 **서버 액션에 임시 user_id**가 하드코딩되어 있습니다.
+실제 인증을 구현하려면:
+
+**옵션 1: Email/Password (가장 일반적)**
+- `/login`, `/signup` 페이지 생성
+- Supabase Auth `signInWithPassword`, `signUp` 사용
+- Session 관리 (Middleware)
+
+**옵션 2: Magic Link (이메일로 로그인 링크)**
+- 이메일만 입력하면 로그인 링크 발송
+- 비밀번호 없이 간편 로그인
+
+**옵션 3: OAuth (Google, GitHub 등)**
+- 소셜 로그인 버튼
+- 가장 사용자 친화적
+
+---
+
+### Phase 2
 1. Supabase 마이그레이션 실행 (003, 004)
 2. 환경 변수 설정 (.env.local)
 3. 테스트 및 버그 수정
