@@ -49,3 +49,38 @@ Discord에서 Obsidian CLI 정보 공유 및 최신 릴리즈 노트 조사
 - 커뮤니티 CLI는 링크 자동 업데이트가 강점
 - 공식 CLI는 스크립팅/자동화에 최적화
 - 두 도구 모두 vault 경로는 `~/Library/Application Support/obsidian/obsidian.json`에서 확인
+
+---
+
+# 세션 진행 기록
+
+## 4. GitHub 동기화 및 토큰 관리
+
+### 4.1 레포 생성
+- 레포 URL: https://github.com/vobcodee/obsidian-vault
+- 설명: Obsidian vault synced from OpenClaw workspace
+- 초기 파일: README.md, obsidian-cli 조사.md, 요리 예능 문법 분석.md
+
+### 4.2 GitHub 토큰 보안 이슈
+- Discord에 PAT 토큰 공유됨 (보안 위험)
+- 토큰 재발급 권장 → 사용자가 새 토큰 발급 완료
+- VPS 환경변수 `GITHUB_TOKEN`으로 설정
+
+### 4.3 권장 토큰 Scope
+| Scope | 설명 | 필수 |
+|-------|------|------|
+| `repo` | 전체 repo 접근 | ✅ |
+| `workflow` | Actions workflow 업데이트 | ✅ |
+| `gist` | Gist 접근 | ⚪ |
+| `pages` | Pages 관리 | ⚪ |
+
+### 4.4 환경변수 설정 완료
+```bash
+export GITHUB_TOKEN="ghp_..."
+GH_TOKEN=$GITHUB_TOKEN gh auth status
+# → github.com ✓ Logged in
+```
+
+## 5. 향후 작업
+- vault 파일 수정 시 `git commit && git push`로 동기화
+- Obsidian에서 GitHub 레포 클론 후 사용
