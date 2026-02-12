@@ -234,13 +234,33 @@
 - [x] GitHub 푸시 완료
 - [x] **PR #1 머지 완료** ✅
 
-**남은 작업:**
-- [ ] Supabase 마이그레이션 적용 (Dashboard에서 SQL 실행)
-- [ ] 환경 변수 설정 (.env.local)
+---
+
+### Phase 2 - 🔥 진행 중 (2026-02-12)
+
+**Magic Link 인증 구현 완료:**
+- [x] 브랜치 생성: `feat/login-magic-link`
+- [x] `@supabase/ssr` 설치
+- [x] 로그인 페이지 (`/login`)
+- [x] 인증 콜백 핸들러 (`/auth/callback`)
+- [x] Middleware (보호된 라우트)
+- [x] Header 컴포넌트 (인증 상태 표시)
+- [x] LogoutButton 컴포넌트
+- [x] GitHub 푸시 완료
+- [ ] **PR 생성 및 Vercel 배포**
+- [ ] **Supabase 마이그레이션 적용**
+- [ ] **Vercel 환경 변수 설정**
+
+**배포 체크리스트:** [[2026-02-12-vercel-배포체크리스트|Vercel 배포 체크리스트]]
 
 ---
 
-### 🔐 로그인 구현 방법
+### Phase 2 - 나머지 작업 (예정)
+- [ ] Zod 런타임 검증 강화
+- [ ] Error Boundary 구현
+- [ ] SWR/React Query 도입
+- [ ] 로딩 UI 개선
+- [ ] 폼 검증 강화
 
 현재는 **서버 액션에 임시 user_id**가 하드코딩되어 있습니다.
 실제 인증을 구현하려면:
